@@ -16,7 +16,7 @@ public  class Students implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
-	private int id;
+	private Long id;
 	private String firstName;
 	private String lastName;
 	
@@ -30,7 +30,7 @@ public  class Students implements Serializable {
 	}
 	
 	/*Getters*/
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public String getFirstName() {
@@ -38,7 +38,7 @@ public  class Students implements Serializable {
 	}
 	
 	/*Setters*/
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public void setFirstName(String firstName) {

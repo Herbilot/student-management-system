@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import tech.herbidev.subjectgroup.models.Students;
 
-public interface StudentRepo extends JpaRepository<Students, Integer> {
+public interface StudentRepo extends JpaRepository<Students, Long> {
 
-	void deleteStudentById(int id);
+	void deleteStudentById(Long id);
 
-	Optional<Students> showStudentById(int id);
+	Optional<Students> findStudentById(Long id);
 
 	
 }

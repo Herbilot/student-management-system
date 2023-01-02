@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import tech.herbidev.subjectgroup.errorHandler.StudentNotFoundException;
 import tech.herbidev.subjectgroup.models.Students;
 import tech.herbidev.subjectgroup.repo.StudentRepo;
 
 @Service
+@Transactional
 public class StudentService {
 	private final StudentRepo studentRepo;
 	
@@ -30,13 +32,13 @@ public class StudentService {
 		return studentRepo.save(student);
 	}
 	
-	public Students showStudentById(int id) {
-		return studentRepo.showStudentById(id)
+	public Students showStudentById(Long id) {
+		return studentRepo.findStudentById(id)
 				.orElseThrow(() -> new StudentNotFoundException(
 						"L'étudiant avec l'id " + id + " n'a pas été trouvé"));
 	}
 	
-	public void deleteStudentById(int id) {
+	public void deleteStudentById(Long id) {
 		studentRepo.deleteStudentById(id);
 	}
 
