@@ -1,5 +1,7 @@
 package tech.herbidev.subjectgroup;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -56,5 +58,17 @@ public class StudentController {
         studentService.deleteStudentById(id);
         return new ResponseEntity<>(HttpStatus.OK); 
 	}
-
+	
+	/*@GetMapping("/groups")
+	public ResponseEntity<List<Students>> groupStudent() {
+		List<Students> list = studentService.showStudent();
+		List<Students> groupe;
+		System.out.println(list);
+		Collections.shuffle(list);
+		System.out.println("randon : " + list);
+		
+		
+		return new ResponseEntity<>(list, HttpStatus.OK); 
+		
+	}*/
 }

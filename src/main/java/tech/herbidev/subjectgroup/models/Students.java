@@ -36,6 +36,9 @@ public  class Students implements Serializable {
 	public String getFirstName() {
 		return firstName;
 	}
+	public String getLastName() {
+		return lastName;
+	}
 	
 	/*Setters*/
 	public void setId(Long id) {

@@ -2,6 +2,7 @@ package tech.herbidev.subjectgroup.models;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +14,8 @@ public class Subjects implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@Column(nullable = false, updatable = false)
+	private Long id;
 	private String description;
 	
 	/*Constructors*/
@@ -24,8 +26,16 @@ public class Subjects implements Serializable {
 		this.description = description;
 	}
 	
+	public Long getId() {
+		return id;
+	}
+	
 	public String getDescription() {
 		return description;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public void setDescription(String description) {
 		this.description = description;
