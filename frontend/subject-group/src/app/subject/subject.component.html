@@ -6,9 +6,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="/liste">Liste <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="#">Liste <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#">Groupes</a>
-        <a class="nav-item nav-link" href="/sujets">Sujets</a>
+        <a class="nav-item nav-link" href="#">Sujets</a>
       </div>
     </div>
   </nav>
@@ -18,7 +18,7 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <div class="mb-3">
-          <h5 class="card-title">Listes des étudiants <span class="text-muted fw-normal ms-2">({{students.length}})</span></h5>
+          <h5 class="card-title">Listes des étudiants <span class="text-muted fw-normal ms-2">({{subjects.length}})</span></h5>
         </div>
       </div>
       <div class="col-md-6">
@@ -44,21 +44,16 @@
               <thead>
                 <tr>
 
-                  <th scope="col">Prénom</th>
-                  <th scope="col">Nom</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Description</th>
                   <th scope="col">Groupe</th>
-                  <th scope="col">Sujet</th>
-                  <th scope="col" style="width: 200px;">Action</th>
                 </tr>
               </thead>
-              <tbody *ngFor="let student of students">
+              <tbody *ngFor="let subject of subjects">
                 <tr>
-                  <td><a href="#" class="text-body"> {{student.firstName}}</a></td>
-                  <td><a href="#" class="text-body"> {{student.lastName}}</a></td>
-
+                  <td><a href="#" class="text-body"> {{subject.id}}</a></td>
+                  <td><a href="#" class="text-body"> {{subject.description}}</a></td>
                   <td><span class="badge badge-soft-success mb-0">Full Stack Developer</span></td>
-
-                  <td></td>
                   <td>
                     <ul class="list-inline mb-0">
                       <li class="list-inline-item">
@@ -115,7 +110,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form #addForm="ngForm" (ngSubmit)="onAddStudent(addForm)">
+        <form #addForm="ngForm" (ngSubmit)="onAddSubject(addForm)">
           <div class="form-group">
              <label for="name">Prénom</label>
              <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="Name" required>
