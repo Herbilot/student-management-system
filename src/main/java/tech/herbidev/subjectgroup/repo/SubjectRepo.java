@@ -6,4 +6,6 @@ import tech.herbidev.subjectgroup.models.Subjects;
 
 public interface SubjectRepo extends JpaRepository<Subjects, Long> {
 
+	void deleteSubjecttById(Long id);
+
 }
