@@ -78,3 +78,10 @@ body{
     .navbar{
         margin-bottom: 100px;
     }
+
+    .groupeMember{
+        text-align: center;
+    }
+    .groupeSubject{
+        text-align: end;
+    }

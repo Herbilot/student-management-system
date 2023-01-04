@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/etudiants" routerLinkActive="active" ariaCurrentWhenActive="page">Liste <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Groupes</a>
+        <a class="nav-item nav-link"  routerLink="/groupes" routerLinkActive="active" ariaCurrentWhenActive="page">Groupes</a>
         <a class="nav-item nav-link"  routerLink="/sujets" routerLinkActive="active" ariaCurrentWhenActive="page">Sujets</a>
       </div>
     </div>
@@ -43,18 +43,15 @@
             <table class="table project-list-table table-nowrap align-middle table-borderless">
               <thead>
                 <tr>
-
-                  <th scope="col">ID</th>
                   <th scope="col">Description</th>
                   <th scope="col">Groupe</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody *ngFor="let subject of subjects">
-                <tr>
-                  <td><a href="#" class="text-body"> {{subject.id}}</a></td>
+                <tr> 
                   <td><a href="#" class="text-body"> {{subject.description}}</a></td>
-                  <td><span class="badge badge-soft-success mb-0">Full Stack Developer</span></td>
+                  <td><span class="badge badge-soft-success mb-0">1</span></td>
                   <td>
                     <ul class="list-inline mb-0">
                       <li class="list-inline-item">
@@ -114,7 +111,7 @@
         <form #addForm="ngForm" (ngSubmit)="onAddSubject(addForm)">
           <div class="form-group">
              <label for="name">Description du sujet</label>
-             <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="Qu'est ce Angular ?" required>
+             <input type="text" ngModel name="description" class="form-control" id="description" placeholder="Qu'est ce Angular ?" required>
           </div>
           
           
