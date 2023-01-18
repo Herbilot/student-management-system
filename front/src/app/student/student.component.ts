@@ -12,6 +12,7 @@ import { StudentService } from './student.service';
 export class StudentComponent implements OnInit {
 
   public students: Students[];
+  public editStudent: Students;
 
   constructor(private studentService: StudentService){}
 
@@ -45,6 +46,35 @@ export class StudentComponent implements OnInit {
       (error: HttpErrorResponse) => {
         alert(error.message);
         addForm.reset();
+      }
+    );
+  }
+
+    //Update student method
+
+    public onUpdateStudent(student: Students): void {
+      student = this.editStudent;
+      this.studentService.updateStudent(student).subscribe(
+        (response: Students) => {
+          console.log(response);
+          this.getStudents(); 
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message); 
+        }
+      );
+    }
+
+  //Delete student method
+
+  public onDeleteStudent(student: Students): void {
+    this.studentService.deleteStudent(student.id).subscribe(
+      () => {
+        console.log();
+        this.getStudents(); 
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message); 
       }
     );
   }

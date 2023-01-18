@@ -18,7 +18,7 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <div class="mb-3">
-          <h5 class="card-title">Listes des étudiants <span class="text-muted fw-normal ms-2">({{students.length}})</span></h5>
+          <h5 class="card-title">Listes des étudiants <span class="text-muted fw-normal ms-2">()</span></h5>
         </div>
       </div>
       <div class="col-md-6">
@@ -62,10 +62,10 @@
                   <td>
                     <ul class="list-inline mb-0">
                       <li class="list-inline-item">
-                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                        <a href=""  data-bs-toggle="tooltip" data-toggle="modal" data-target="#updateStudentModal" data-bs-placement="top" title="Editer" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
                       </li>
                       <li class="list-inline-item">
-                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                        <a href="" data-id="{{student.id}}" data-bs-toggle="tooltip" data-toggle="modal" data-target="#deleteStudentModal" data-bs-placement="top" title="supprimer" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
                       </li>
                     </ul>
                   </td>
@@ -104,7 +104,7 @@
 
   </div>
 
-  <!-- Modal -->
+  <!-- Modal add student -->
 <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -131,6 +131,64 @@
       </div>
     </form>
   </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal update student -->
+<div class="modal fade" id="updateStudentModal" tabindex="-1" role="dialog" aria-labelledby="updateStudentModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateStudentModal">Modifier un étudiant</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <form #updateForm="ngForm" >
+          <div class="form-group">
+            <label for="name">Id</label>
+             <input type="text"  name="id" class="form-control" id="id" placeholder="id" required>
+          
+             <label for="name">Prénom</label>
+             <input type="text"  name="firstName" class="form-control" id="firstName" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Name" required>
+         </div>
+          
+      <div class="modal-footer">
+        <button type="button" id="update-student-form" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button (click)="onUpdateStudent(updateForm.value)" type="submit" class="btn btn-primary">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal delete student -->
+<div class="modal fade" id="deleteStudentModal" tabindex="-1" role="dialog" aria-labelledby="deleteStudentModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteStudentModal">Supprimer l'étudiant</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <form >
+          <input class="btn btn-danger" type="submit" value="Supprimer">
+        </form>
+        
+      </div>
     </div>
   </div>
 </div>

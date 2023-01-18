@@ -1,43 +1,68 @@
 package tech.herbidev.subjectgroup.models;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Groups {
-	private int number;
-	private String name = "Groupe";
-	private List<Students> member;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Groups implements Serializable {
 	
-	public Groups( ) {}
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(nullable = false, updatable = false)
+	private Long id;;
+	private String name;
+	
+	
+	
+	
 
-	public Groups(int number, String name, List<Students> member) {
-		this.number = number;
-		name = this.name;
-		this.member = member;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Groups() {}
+	
+	public Groups(String name) {
+
+		this.name = name;
 	}
 
 
-	public int getNumber() {
-		return number;
+	public Long getId() {
+		return id;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public List<Students> getMember() {
-		return member;
-	}
-
-	public void setMember(List<Students> member) {
-		this.member = member;
+	
+	@Override
+	public String toString() {
+		return "Etudiant{" +
+				"id= " + id +
+				", name= " + name + '\'' +
+				'}';
 	}
 	
 }
